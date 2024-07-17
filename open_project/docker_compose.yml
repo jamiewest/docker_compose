@@ -1,0 +1,7 @@
+services:
+  application:
+    image: openproject/openproject:14.2.1
+    ports: 
+      - "8080:80"
+  database:
+    image: postgres:13
