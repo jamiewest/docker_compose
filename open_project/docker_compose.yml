@@ -1,7 +1,19 @@
 services:
   application:
+    container_name: open_project
+    restart: unless-stopped
+    environment:
+      OPENPROJECT_EDITION: "bim"
+      USE_PUMA: "true"
+      OPENPROJECT_SECRET_KEY_BASE: secret
+      OPENPROJECT_HOST__NAME: localhost:8080
+      OPENPROJECT_HTTPS: false
+      OPENPROJECT_DEFAULT__LANGUAGE: en
     image: openproject/openproject:14.2.1
     ports: 
       - "8080:80"
+    volumes:
+
   database:
+    container_name: open_project_db
     image: postgres:13
